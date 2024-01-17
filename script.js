@@ -76,25 +76,30 @@ function CreateBook(title, author, pages, read) {
     this.pages = pages;
     this.read = read;
 }
+
 const form = document.querySelector("#form");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const titleInput = document.querySelector(
-        '#form [placeholder="Title"]'
-    ).value;
-    const authorInput = document.querySelector(
-        '#form [placeholder="Author"]'
-    ).value;
-    const pagesInput = document.querySelector(
-        '#form [placeholder="Pages"]'
-    ).value;
-    const readCheckbox = document.getElementById("read");
-    const readInput = readCheckbox.checked;
-    Mylibrary.push(
-        new CreateBook(titleInput, authorInput, pagesInput, readInput)
-    );
-    Book();
+    if (form.validity()) {
+        const titleInput = document.querySelector(
+            '#form [placeholder="Title"]'
+        ).value;
+        const authorInput = document.querySelector(
+            '#form [placeholder="Author"]'
+        ).value;
+        const pagesInput = document.querySelector(
+            '#form [placeholder="Pages"]'
+        ).value;
+        const readCheckbox = document.getElementById("read");
+        const readInput = readCheckbox.checked;
+        Mylibrary.push(
+            new CreateBook(titleInput, authorInput, pagesInput, readInput)
+        );
+        Book();
+
+        modal.close();
+    }
 });
 // Modal logic
 const openModal = document.querySelector(".open-button");
@@ -108,7 +113,3 @@ openModal.addEventListener("click", () => {
 });
 
 const submit = document.querySelector(".submit-button");
-
-submit.addEventListener("click", () => {
-    modal.close();
-});

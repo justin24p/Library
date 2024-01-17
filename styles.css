@@ -72,6 +72,7 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 0.5rem;
 }
+
 .submit-button {
     background-color: rgb(223, 157, 223);
     border-radius: 0.3rem;
@@ -106,6 +107,7 @@ body {
     gap: 1rem;
     padding: 1rem;
     box-shadow: 0 0 6px rgba(143, 143, 143, 0.2);
+    overflow-x: hidden;
 }
 .bookcontainer > p {
     font-family: "roboto";
