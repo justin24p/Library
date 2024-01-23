@@ -81,7 +81,7 @@ const form = document.querySelector("#form");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    if (form.validity()) {
+    if (form.checkValidity()) {
         const titleInput = document.querySelector(
             '#form [placeholder="Title"]'
         ).value;
