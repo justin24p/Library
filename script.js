@@ -1,8 +1,25 @@
 //Highest Scope Variables
-const Mylibrary = [];
-const BookElementCount = 0;
-let counter = 0;
-
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+}
+class Library {
+    constructor() {
+        this.books = [];
+    }
+    addBook(book) {
+        this.books.push(book);
+    }
+    remove(index) {
+        index = parseInt(index);
+        this.books.splice(index, 1);
+    }
+}
+const library = new Library();
 // main code
 function Book() {
     const container = document.querySelector(".main");
@@ -70,13 +87,8 @@ function AppendBookElements(bookdiv, bookObject) {
 }
 
 //
-function CreateBook(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
 
+// form logic
 const form = document.querySelector("#form");
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -93,6 +105,9 @@ form.addEventListener("submit", function (event) {
         ).value;
         const readCheckbox = document.getElementById("read");
         const readInput = readCheckbox.checked;
+        library.addBook(
+            new Book(titleInput, authorInput, pagesInput, readInput)
+        );
         Mylibrary.push(
             new CreateBook(titleInput, authorInput, pagesInput, readInput)
         );
